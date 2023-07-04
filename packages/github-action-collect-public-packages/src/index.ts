@@ -1,3 +1,5 @@
+import 'core-js/features/structured-clone.js';
+
 import { endGroup, error, info, setOutput, startGroup } from '@actions/core';
 import { collectWorkspacePackages } from '@alexaegis/workspace-tools';
 
@@ -19,17 +21,19 @@ export const collectPublicPackageNames = async (): Promise<string[] | undefined>
 	}
 };
 
-const publicPackageNames = await collectPublicPackageNames();
+void (async () => {
+	const publicPackageNames = await collectPublicPackageNames();
 
-if (publicPackageNames) {
-	if (publicPackageNames.length > 0) {
-		startGroup('public packages found:');
-		for (const name of publicPackageNames) {
-			info(name);
+	if (publicPackageNames) {
+		if (publicPackageNames.length > 0) {
+			startGroup('public packages found:');
+			for (const name of publicPackageNames) {
+				info(name);
+			}
+			endGroup();
+			setOutput('publicPackageNames', publicPackageNames);
+		} else {
+			info('There are no public packages within this repository');
 		}
-		endGroup();
-		setOutput('publicPackageNames', publicPackageNames);
-	} else {
-		info('There are no public packages within this repository');
 	}
-}
+})();

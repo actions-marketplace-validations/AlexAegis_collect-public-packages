@@ -233,6 +233,10 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-
+      - name: collect public packages
+        id: collect-packages
+        uses: ./
+      - run: echo ${{steps.collect-packages.outputs.publicPackageNames}}
       - name: install
         run: pnpm install
       - name: build

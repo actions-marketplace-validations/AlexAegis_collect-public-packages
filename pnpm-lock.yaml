@@ -158,6 +158,9 @@ importers:
       '@alexaegis/workspace-tools':
         specifier: ^0.3.2
         version: 0.3.2
+      core-js:
+        specifier: ^3.31.0
+        version: 3.31.0
     devDependencies:
       '@alexaegis/eslint-config-vitest':
         specifier: ^0.3.4
@@ -171,6 +174,9 @@ importers:
       '@alexaegis/vitest':
         specifier: ^0.3.4
         version: 0.3.4(svelte@4.0.4)(vite@4.3.9)
+      '@types/core-js':
+        specifier: ^2.5.5
+        version: 2.5.5
       vite:
         specifier: ^4.3.9
         version: 4.3.9(@types/node@20.3.3)
@@ -1821,6 +1827,10 @@ packages:
     resolution: {integrity: sha512-COUnqfB2+ckwXXSFInsFdOAWQzCCx+a5hq2ruyj+Vjund94RJQd4LG2u9hnvJrTgunKAaax7ancBYlDrNYxA0g==}
     dev: true
 
+  /@types/core-js@2.5.5:
+    resolution: {integrity: sha512-C4vwOHrhsvxn7UFyk4NDQNUpgNKdWsT/bL39UWyD75KSEOObZSKa9mYDOCM5FGeJG2qtbG0XiEbUKND2+j0WOg==}
+    dev: true
+
   /@types/debug@4.1.8:
     resolution: {integrity: sha512-/vPO1EPOs306Cvhwv7KfVfYvOJqA/S/AXjaHQiJboCZzcNDb+TIJFN9/2C9DZ//ijSKWioNyUxD792QmDJ+HKQ==}
     dependencies:
@@ -3257,6 +3267,11 @@ packages:
     resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
     engines: {node: '>= 0.6'}
     dev: true
+
+  /core-js@3.31.0:
+    resolution: {integrity: sha512-NIp2TQSGfR6ba5aalZD+ZQ1fSxGhDo/s1w0nx3RYzf2pnJxt7YynxFlFScP6eV7+GZsKO95NSjGxyJsU3DZgeQ==}
+    requiresBuild: true
+    dev: false
 
   /core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}

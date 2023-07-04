@@ -5,6 +5,7 @@ import { defineConfig } from 'vite';
 // default config for node libraries
 export default defineConfig({
 	build: {
+		target: 'es2020', // Action only supports node16
 		lib: {
 			entry: '',
 			formats: ['es'],
