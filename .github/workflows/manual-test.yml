@@ -2,6 +2,8 @@ name: manual-test
 
 on:
   workflow_dispatch:
+  push:
+    branches: '**'
 
 jobs:
   test:
@@ -17,8 +19,9 @@ jobs:
         with:
           node-version: 18.x
       - name: collect public packages
-        id: collect-packages
+        id: collectPackages
         uses: ./
       - name: print collected public packages
         run: |
-          echo collected packages: ${{steps.collect-packages.outputs.publicPackageNames}}
+          echo first: ${{steps.collectPackages.outputs.first}}
+          echo collected packages: ${{steps.collectPackages.outputs.publicPackageNames}}

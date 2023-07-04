@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 
 const setOutputMock = vi.hoisted(() => vi.fn());
 const infoMock = vi.hoisted(() => vi.fn());
-const errorMock = vi.hoisted(() => vi.fn());
+const setFailedMock = vi.hoisted(() => vi.fn());
 
 const collectWorkspacePackagesMock = vi.hoisted(() =>
 	vi.fn((): WorkspacePackage[] => {
@@ -32,7 +32,7 @@ vi.mock('@actions/core', () => {
 		info: infoMock,
 		startGroup: vi.fn(),
 		setOutput: setOutputMock,
-		error: errorMock,
+		setFailed: setFailedMock,
 	};
 });
 
@@ -52,7 +52,7 @@ describe('github-action-collect-public-packages', () => {
 		expect(setOutputMock).not.toHaveBeenCalled();
 		await import('./index.js');
 		expect(setOutputMock).toHaveBeenCalledTimes(1);
-		expect(errorMock).not.toHaveBeenCalled();
+		expect(setFailedMock).not.toHaveBeenCalled();
 		expect(setOutputMock).toHaveBeenCalledWith('publicPackageNames', ['foo', 'bar']);
 	});
 
@@ -61,17 +61,27 @@ describe('github-action-collect-public-packages', () => {
 		expect(setOutputMock).not.toHaveBeenCalled();
 		await import('./index.js');
 		expect(infoMock).toHaveBeenCalledTimes(1);
-		expect(errorMock).not.toHaveBeenCalled();
+		expect(setFailedMock).not.toHaveBeenCalled();
 		expect(setOutputMock).toHaveBeenCalledTimes(0);
 		expect(setOutputMock).not.toHaveBeenCalled();
 	});
 
 	it('should be able to report an error if something happens during collection', async () => {
+		collectWorkspacePackagesMock.mockRejectedValueOnce(new Error('error'));
+		expect(setOutputMock).not.toHaveBeenCalled();
+		await import('./index.js');
+		expect(infoMock).not.toHaveBeenCalled();
+		expect(setFailedMock).toHaveBeenCalledTimes(1);
+		expect(setOutputMock).toHaveBeenCalledTimes(0);
+		expect(setOutputMock).not.toHaveBeenCalled();
+	});
+
+	it('should be able to report an unkown error if something happens during collection', async () => {
 		collectWorkspacePackagesMock.mockRejectedValueOnce('error');
 		expect(setOutputMock).not.toHaveBeenCalled();
 		await import('./index.js');
 		expect(infoMock).not.toHaveBeenCalled();
-		expect(errorMock).toHaveBeenCalledTimes(1);
+		expect(setFailedMock).toHaveBeenCalledTimes(1);
 		expect(setOutputMock).toHaveBeenCalledTimes(0);
 		expect(setOutputMock).not.toHaveBeenCalled();
 	});
