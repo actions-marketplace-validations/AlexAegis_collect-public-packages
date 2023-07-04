@@ -4,7 +4,7 @@ description:
   private: false'
 author: 'alexaegis'
 runs:
-  using: 'node18'
+  using: 'node16'
   main: 'public/index.js'
 # https://github.com/haya14busa/github-action-brandings
 branding:
