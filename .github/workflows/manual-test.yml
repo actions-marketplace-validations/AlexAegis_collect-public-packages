@@ -7,18 +7,18 @@ jobs:
   test:
     name: manual-test
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x]
     steps:
       - name: checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - name: setup node.js ${{ matrix.node-version }}
+      - name: setup node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18.x
       - name: collect public packages
         id: collect-packages
         uses: ./
+      - name: print collected public packages
+        run: |
+          echo collected packages: ${{steps.collect-packages.outputs.publicPackageNames}}

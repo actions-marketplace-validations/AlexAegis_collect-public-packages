@@ -89,7 +89,7 @@
 		"@alexaegis/autotool-plugin-vitest": "^0.3.4",
 		"@alexaegis/autotool-plugin-vscode": "^0.3.4",
 		"@alexaegis/autotool-plugin-workspace": "^0.3.4",
-		"@alexaegis/coverage-tools": "^0.3.2",
+		"@alexaegis/coverage-tools": "^0.4.0",
 		"@alexaegis/eslint-config-core": "^0.3.4",
 		"@alexaegis/nuke": "^0.3.4",
 		"@alexaegis/stylelint-config": "^0.3.4",
