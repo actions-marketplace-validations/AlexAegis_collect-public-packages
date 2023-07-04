@@ -1,4 +1,4 @@
-# managed-by-autotool
+# TODO: Reenable managedbyautotool
 # This file is used when formatting the workspace itself
 
 packages
@@ -41,3 +41,9 @@ target
 .cache
 .benchmark
 CHANGELOG.md
+
+# TODO: For ignorefiles a syntax like this could retain customizability without turning off autoupdates
+# CUSTOM-BEGIN
+# This is the runtime bundle for this action, no need to format it
+index.js
+# CUSTOM-END

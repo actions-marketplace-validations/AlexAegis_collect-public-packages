@@ -1,0 +1,12 @@
+name: 'collect public package names'
+description:
+  'Collects every package name in a repository that is explicitly marked as
+  private: false'
+author: 'alexaegis'
+runs:
+  using: 'node18'
+  main: 'public/index.js'
+# https://github.com/haya14busa/github-action-brandings
+branding:
+  color: 'yellow'
+  icon: 'align-left'

@@ -1,5 +1,7 @@
 {
 	"name": "@alexaegis/github-action-collect-public-packages",
+	"description": "Collects every package name in a repository that is explicitly marked as private: false",
+	"version": "0.0.1",
 	"private": true,
 	"archetype": {
 		"platform": "github",
@@ -12,6 +14,8 @@
 	],
 	"type": "module",
 	"scripts": {
+		"build": "turbo run build-lib_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/github-action-collect-public-packages",
+		"build-lib_": "vite build && node copy-bundle.js",
 		"lint:depcheck": "turbo run lint:depcheck_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/github-action-collect-public-packages",
 		"lint:depcheck_": "depcheck",
 		"lint:es": "turbo run lint:es_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/github-action-collect-public-packages",
@@ -29,6 +33,13 @@
 		"test_": "vitest --passWithNoTests --coverage --run",
 		"test:watch": "vitest --passWithNoTests --coverage"
 	},
+	"exports": {
+		".": {
+			"types": "./src/index.ts",
+			"import": "./dist/index.js",
+			"default": "./dist/index.js"
+		}
+	},
 	"dependencies": {
 		"@actions/core": "^1.10.0",
 		"@alexaegis/workspace-tools": "^0.3.2"
@@ -36,7 +47,9 @@
 	"devDependencies": {
 		"@alexaegis/eslint-config-vitest": "^0.3.4",
 		"@alexaegis/ts": "^0.3.4",
+		"@alexaegis/vite": "^0.3.4",
 		"@alexaegis/vitest": "^0.3.4",
+		"vite": "^4.3.9",
 		"vitest": "^0.32.4"
 	}
 }
