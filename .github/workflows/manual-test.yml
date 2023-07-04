@@ -6,22 +6,31 @@ on:
     branches: '**'
 
 jobs:
-  test:
+  collect:
     name: manual-test
     runs-on: ubuntu-latest
+    outputs:
+      publicPackageNames:
+        ${{ steps.collectPackages.outputs.publicPackageNames }}
     steps:
       - name: checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 1
-      - name: setup node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
       - name: collect public packages
         id: collectPackages
         uses: ./
       - name: print collected public packages
         run: |
-          echo first: ${{steps.collectPackages.outputs.first}}
           echo collected packages: ${{steps.collectPackages.outputs.publicPackageNames}}
+  printmatrix:
+    name: printmatrix
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        artifact: ${{ fromJSON(needs.collect.outputs.publicPackageNames) }}
+    needs: [collect]
+    steps:
+      - name: print artifact
+        run: |
+          echo package: ${{ matrix.artifact }}
