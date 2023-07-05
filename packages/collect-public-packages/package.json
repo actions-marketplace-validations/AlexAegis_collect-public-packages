@@ -13,7 +13,6 @@
 		"managed-by-autotool"
 	],
 	"type": "module",
-	"packageManager": "pnpm@8.6.6",
 	"scripts": {
 		"build": "turbo run build-lib_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/collect-public-packages",
 		"build-lib_": "vite build && node copy-bundle.js",
