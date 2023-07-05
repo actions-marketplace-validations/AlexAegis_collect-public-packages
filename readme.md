@@ -48,7 +48,7 @@ jobs:
           fetch-depth: 1
       - name: collect public packages
         id: collectPackages
-        uses: alexaegis/collect-public-packages@release
+        uses: AlexAegis/collect-public-packages@v1
   print:
     runs-on: ubuntu-latest
     if: ${{ needs.collect.outputs.publicPackageNames }}

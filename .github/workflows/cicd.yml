@@ -35,7 +35,7 @@ jobs:
           fetch-depth: 1
       - name: collect public packages
         id: collectPackages
-        uses: ./
+        uses: AlexAegis/collect-public-packages@v1
   lint:
     name: lint:${{ matrix.lint-kind }}
     runs-on: ubuntu-latest
