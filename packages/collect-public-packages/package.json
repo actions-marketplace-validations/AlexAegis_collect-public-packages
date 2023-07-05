@@ -2,6 +2,7 @@
 	"name": "@alexaegis/collect-public-packages",
 	"description": "Collects every package name in a repository that is explicitly marked as private: false",
 	"version": "0.0.1",
+	"private": false,
 	"archetype": {
 		"platform": "github",
 		"language": "ts",

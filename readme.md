@@ -19,6 +19,8 @@ action only outputs non-empty arrays. If there are no public packages within the
 repository it outputs nothing. This makes it trivial to use the same output as a
 condition for the job.
 
+![case-no-public](./docs/case-no-public.png)
+
 ## Example workflow
 
 > For a real-world usecase check the workflows of this repository!
