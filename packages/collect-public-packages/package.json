@@ -13,6 +13,7 @@
 		"managed-by-autotool"
 	],
 	"type": "module",
+	"packageManager": "pnpm@8.6.6",
 	"scripts": {
 		"build": "turbo run build-lib_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/collect-public-packages",
 		"build-lib_": "vite build && node copy-bundle.js",
@@ -26,8 +27,6 @@
 		"lint:md_": "remark --frail --no-stdout --silently-ignore .",
 		"lint:tsc": "turbo run lint:tsc_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/collect-public-packages",
 		"lint:tsc_": "tsc --noEmit",
-		"publint": "turbo run publint_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/collect-public-packages",
-		"publint_": "publint dist",
 		"all": "turbo run all_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/collect-public-packages",
 		"format": "turbo run format_ --concurrency 16 --cache-dir .cache/turbo --filter @alexaegis/collect-public-packages",
 		"format_": "prettier --no-plugin-search --cache-location .cache/prettier --write .",
@@ -52,7 +51,6 @@
 		"@alexaegis/ts": "^0.3.4",
 		"@alexaegis/vite": "^0.3.4",
 		"@alexaegis/vitest": "^0.3.4",
-		"publint": "^0.1.15",
 		"vite": "^4.3.9",
 		"vitest": "^0.32.4"
 	}
