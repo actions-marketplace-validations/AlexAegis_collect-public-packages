@@ -300,13 +300,14 @@ jobs:
   release:
     name: release
     if:
-      github.ref_name == github.event.repository.default_branch &&
-      github.event_name != 'pull_request'
+      needs.collect.outputs.publicPackageNames && github.ref_name ==
+      github.event.repository.default_branch && github.event_name !=
+      'pull_request'
     runs-on: ubuntu-latest
-    needs: [build, test, lint, typedoc]
+    needs: [collect, build, test, lint, typedoc]
     strategy:
       matrix:
-        artifact: []
+        artifact: ${{ fromJSON(needs.collect.outputs.publicPackageNames) }}
     steps:
       - name: checkout
         uses: actions/checkout@v3

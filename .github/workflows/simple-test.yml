@@ -21,7 +21,7 @@ jobs:
         uses: ./
   print:
     runs-on: ubuntu-latest
-    if: ${{ needs.collect.outputs.publicPackageNames }}
+    if: needs.collect.outputs.publicPackageNames
     strategy:
       matrix:
         package: ${{ fromJSON(needs.collect.outputs.publicPackageNames) }}

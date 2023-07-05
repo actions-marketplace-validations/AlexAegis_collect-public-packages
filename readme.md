@@ -51,7 +51,7 @@ jobs:
         uses: AlexAegis/collect-public-packages@v1
   print:
     runs-on: ubuntu-latest
-    if: ${{ needs.collect.outputs.publicPackageNames }}
+    if: needs.collect.outputs.publicPackageNames
     strategy:
       matrix:
         package: ${{ fromJSON(needs.collect.outputs.publicPackageNames) }}
