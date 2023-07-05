@@ -1,5 +1,5 @@
 {
-	"name": "github-action-collect-public-packages",
+	"name": "collect-public-packages",
 	"description": "Collects every package name in a repository that is explicitly marked as private: false",
 	"version": "1.0.0",
 	"license": "MIT",
@@ -14,12 +14,12 @@
 		"url": "https://github.com/AlexAegis"
 	},
 	"repository": {
-		"url": "https://github.com/AlexAegis/github-action-collect-public-packages",
+		"url": "https://github.com/AlexAegis/collect-public-packages",
 		"type": "git"
 	},
 	"bugs": {
 		"email": "alexaegis@gmail.com",
-		"url": "https://github.com/AlexAegis/github-action-collect-public-packages/issues"
+		"url": "https://github.com/AlexAegis/collect-public-packages/issues"
 	},
 	"type": "module",
 	"config": {

@@ -1,9 +1,9 @@
-# [github-action-collect-public-packages](https://github.com/marketplace/actions/collect-public-packages)
+# [collect-public-packages](https://github.com/marketplace/actions/collect-public-packages)
 
-[![npm](https://img.shields.io/npm/v/@alexaegis/github-action-collect-public-packages/latest)](https://www.npmjs.com/package/@alexaegis/github-action-collect-public-packages)
-[![ci](https://github.com/AlexAegis/github-action-collect-public-packages/actions/workflows/cicd.yml/badge.svg)](https://github.com/AlexAegis/github-action-collect-public-packages/actions/workflows/cicd.yml)
-[![codacy](https://app.codacy.com/project/badge/Grade/402dd6d7fcbd4cde86fdf8e7d948fcde)](https://www.codacy.com/gh/AlexAegis/github-action-collect-public-packages/dashboard?utm_source=github.com&utm_medium=referral&utm_content=AlexAegis/github-action-collect-public-packages&utm_campaign=Badge_Grade)
-[![codecov](https://codecov.io/gh/AlexAegis/github-action-collect-public-packages/branch/master/graph/badge.svg?token=kw8ZeoPbUh)](https://codecov.io/gh/AlexAegis/github-action-collect-public-packages)
+[![npm](https://img.shields.io/npm/v/@alexaegis/collect-public-packages/latest)](https://www.npmjs.com/package/@alexaegis/collect-public-packages)
+[![ci](https://github.com/AlexAegis/collect-public-packages/actions/workflows/cicd.yml/badge.svg)](https://github.com/AlexAegis/collect-public-packages/actions/workflows/cicd.yml)
+[![codacy](https://app.codacy.com/project/badge/Grade/402dd6d7fcbd4cde86fdf8e7d948fcde)](https://www.codacy.com/gh/AlexAegis/collect-public-packages/dashboard?utm_source=github.com&utm_medium=referral&utm_content=AlexAegis/collect-public-packages&utm_campaign=Badge_Grade)
+[![codecov](https://codecov.io/gh/AlexAegis/collect-public-packages/branch/master/graph/badge.svg?token=kw8ZeoPbUh)](https://codecov.io/gh/AlexAegis/collect-public-packages)
 
 ![banner](./banner.png)
 
@@ -44,7 +44,7 @@ jobs:
           fetch-depth: 1
       - name: collect public packages
         id: collectPackages
-        uses: alexaegis/github-action-collect-public-packages@release
+        uses: alexaegis/collect-public-packages@release
   print:
     runs-on: ubuntu-latest
     if: ${{ needs.collect.outputs.publicPackageNames }}

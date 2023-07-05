@@ -42,7 +42,7 @@ vi.mock('@alexaegis/workspace-tools', () => {
 	};
 });
 
-describe('github-action-collect-public-packages', () => {
+describe('collect-public-packages', () => {
 	afterEach(() => {
 		vi.clearAllMocks();
 		vi.resetModules();
