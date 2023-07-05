@@ -15,7 +15,7 @@ export const collectPublicPackageNames = async (): Promise<string[]> => {
 	const publicPackages = await collectWorkspacePackages({
 		skipWorkspaceRoot: true, // Will let single package repos through, in monorepos, you don't want to publish the workspace itself
 		packageJsonMatcher: {
-			private: false, // A package is public when it's explicitily not private.
+			private: false, // A package is public when its explicitly not private.
 		},
 	});
 
