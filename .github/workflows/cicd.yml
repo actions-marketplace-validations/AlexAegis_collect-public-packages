@@ -23,6 +23,19 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  collect:
+    runs-on: ubuntu-latest
+    outputs:
+      publicPackageNames:
+        ${{ steps.collectPackages.outputs.publicPackageNames }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: collect public packages
+        id: collectPackages
+        uses: ./
   lint:
     name: lint:${{ matrix.lint-kind }}
     runs-on: ubuntu-latest

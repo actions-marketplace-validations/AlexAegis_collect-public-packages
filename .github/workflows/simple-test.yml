@@ -1,4 +1,4 @@
-name: manual-test
+name: simple-test
 
 on:
   workflow_dispatch:
@@ -7,7 +7,6 @@ on:
 
 jobs:
   collect:
-    name: manual-test
     runs-on: ubuntu-latest
     outputs:
       publicPackageNames:
@@ -20,17 +19,14 @@ jobs:
       - name: collect public packages
         id: collectPackages
         uses: ./
-      - name: print collected public packages
-        run: |
-          echo collected packages: ${{steps.collectPackages.outputs.publicPackageNames}}
-  printmatrix:
-    name: printmatrix
+  print:
     runs-on: ubuntu-latest
+    if: ${{ needs.collect.outputs.publicPackageNames }}
     strategy:
       matrix:
-        artifact: ${{ fromJSON(needs.collect.outputs.publicPackageNames) }}
+        package: ${{ fromJSON(needs.collect.outputs.publicPackageNames) }}
     needs: [collect]
     steps:
-      - name: print artifact
+      - name: print package
         run: |
-          echo package: ${{ matrix.artifact }}
+          echo package: ${{ matrix.package }}
