@@ -1,6 +1,5 @@
 # [collect-public-packages](https://github.com/marketplace/actions/collect-public-packages)
 
-[![npm](https://img.shields.io/npm/v/@alexaegis/collect-public-packages/latest)](https://www.npmjs.com/package/@alexaegis/collect-public-packages)
 [![ci](https://github.com/AlexAegis/collect-public-packages/actions/workflows/cicd.yml/badge.svg)](https://github.com/AlexAegis/collect-public-packages/actions/workflows/cicd.yml)
 [![codacy](https://app.codacy.com/project/badge/Grade/4cc2c35d0cab43c7a37256a9d063c64f)](https://app.codacy.com/gh/AlexAegis/collect-public-packages/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![codecov](https://codecov.io/gh/AlexAegis/collect-public-packages/branch/master/graph/badge.svg?token=kw8ZeoPbUh)](https://codecov.io/gh/AlexAegis/collect-public-packages)
